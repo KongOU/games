@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'figaro'
 
 gem 'devise', '~> 3.5.1'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug'

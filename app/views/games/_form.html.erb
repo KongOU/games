@@ -37,7 +37,11 @@
   </div>
   <div class="field">
     <%= f.label :cat_name %><br>
-    <%= f.text_field :cat_name %>
+    <%= f.select(:category) do %>
+  <% @category.each do |c| -%>
+    <%= content_tag(:option, c.Cate_name, value: c) %>
+  <% end %>
+<% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

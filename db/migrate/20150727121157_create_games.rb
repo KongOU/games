@@ -7,7 +7,6 @@ class CreateGames < ActiveRecord::Migration
       t.date :release_date
       t.text :iframe
       t.text :source
-      t.string :cat_name
 
       t.timestamps null: false
     end
