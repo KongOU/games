@@ -15,6 +15,7 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
+    @category = Category.all
   end
 
   # GET /games/1/edit
@@ -69,6 +70,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:title, :image, :description, :release_date, :iframe, :source, :cat_name)
+      params.require(:game).permit(:title, :image, :description, :release_date, :iframe, :source, :category)
     end
 end
