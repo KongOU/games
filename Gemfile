@@ -13,6 +13,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave'
 gem 'figaro'
 
+gem 'devise', '~> 3.5.1'
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
