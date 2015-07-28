@@ -39,7 +39,7 @@
     <%= f.label :cat_name %><br>
     <%= f.select(:category) do %>
   <% @category.each do |c| -%>
-    <%= content_tag(:option, c.Cate_name, value: c) %>
+    <%= content_tag(:option, c.name, value: c) %>
   <% end %>
 <% end %>
   </div>
