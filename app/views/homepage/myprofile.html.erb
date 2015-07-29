@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+<div class="panel-heading"><h3>User Profile</h3></div>
+    <table class="table">
+      <tr>
+        <td>
+           <%= image_tag(current_user.profilepicture, size: "150x150") %>
+        </td>
+        <td>
+           <% if current_user.present? %>
+              <b><%= current_user.email.upcase %></b>
+           <% end %>
+        </td>
+        <td>
+          <%= link_to 'Edit Profile', edit_user_registration_path %>
+         </td>
+      </tr>
+    </table>
+</div>
+<center><h1>MY FAVORITE</h1></center>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="field"></div>
+  </div>
+</div>
+
