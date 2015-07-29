@@ -2,7 +2,7 @@
   <div class="panel-heading">Features</div>
   <div class="panel-body">
 
-    <% Game.all.order('created_at DESC').each do |g| %>
+    <% Game.order(:cached_weighted_average => :desc).limit(5).each do |g| %>
         <div class="row">
         <div class="col-xs-5 col-md-3">
           <div class="thumbnail">

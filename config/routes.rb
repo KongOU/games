@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     member do
       put 'like', to: 'games#like_game'
       put 'dislike', to: 'games#dislike_game'
+      put 'favorite', to: 'games#favorite_game'
     end
   end
   root 'homepage#index'
