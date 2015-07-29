@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :games
+  resources :games do
+    member do
+      put 'like', to: 'games#like_game'
+      put 'dislike', to: 'games#dislike_game'
+    end
+  end
   root 'homepage#index'
   get 'games/index'
 end
