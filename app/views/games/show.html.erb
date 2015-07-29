@@ -1,6 +1,3 @@
-
-
-
 <div class="col-xs-5 col-md-11">
 <h1><%= @game.title %></h1>
 <p><span class="badge">Stragy</span></p>
@@ -9,7 +6,10 @@
   <div class="panel-body">
     <%= link_to pluralize(@game.get_likes.count, 'Like'), like_game_path(@game), method: :put, class: 'btn btn-default btn-lg'%>
 
-      <%= link_to pluralize(@game.get_dislikes.count, 'Dislike'), dislike_game_path(@game), method: :put, class: 'btn btn-default btn-lg'%>
+    <%= link_to pluralize(@game.get_dislikes.count, 'Dislike'), dislike_game_path(@game), method: :put, class: 'btn btn-default btn-lg'%>
+
+    <%= link_to @game.get_upvotes.size, favorite_game_path(@game), method: :put, class: 'btn btn-default btn-lg'%>
+
   </div>
 </div>
 <h3>Description</h3>
@@ -41,9 +41,6 @@
 </div>
 
 </div>
-
-
-
 
 
 <div id="fb-root"></div>

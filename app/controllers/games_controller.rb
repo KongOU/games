@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :favorite_game ]
 
   # GET /games
   # GET /games.json
@@ -31,6 +31,12 @@ class GamesController < ApplicationController
     @game.disliked_by(current_user)
     redirect_to @game
   end
+
+  def favorite_game
+    @game.vote_by :voter => current_user
+    redirect_to @game
+  end
+
 
   # POST /games
   # POST /games.json
