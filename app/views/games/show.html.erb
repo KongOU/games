@@ -1,10 +1,53 @@
-<p id="notice"><%= notice %></p>
+<div class="col-xs-5 col-md-11">
+<h1><%= @game.title %></h1>
+<p><span class="badge">Stragy</span></p>
+<%= @game.iframe.html_safe %>
+  <div class="panel panel-default">
+  <div class="panel-body">
+    <%= link_to pluralize(@game.get_likes.count, 'Like'), like_game_path(@game), method: :put, class: 'btn btn-default btn-lg'%>
 
-<%= image_tag @game.image_url %>
+    <%= link_to pluralize(@game.get_dislikes.count, 'Dislike'), dislike_game_path(@game), method: :put, class: 'btn btn-default btn-lg'%>
 
-<p>
-  <strong>Title:</strong>
-  <%= @game.title %>
-</p>
+    <%= link_to @game.get_upvotes.size, favorite_game_path(@game), method: :put, class: 'btn btn-default btn-lg'%>
 
-<%= link_to 'Back', games_path %>
+  </div>
+</div>
+<h3>Description</h3>
+  <p> <%= @game.description %></p>
+<p><span class="badge"><%= link_to 'Source', @game.source %></span></p>
+
+
+<div class="fb-comments" data-href=<%= @game.source %> data-numposts="5"></div>
+
+ <div class="panel panel-default">
+ <div class="panel-heading">
+ Related Game
+ </div>
+  <div class="panel-body">
+    <% Game.all.limit(20).order('created_at DESC').each do |g| %>
+      <div class="row">
+
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag(g.image.url) %>
+            <div class="caption" style="text-align:center">
+              <h3><%= link_to g.title, g %></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+</div>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=521364604679954";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

@@ -36,14 +36,12 @@
     <%= f.text_area :source %>
   </div>
   <div class="field">
-    <%= f.label :cat_name %><br>
-    <%= f.select(:category) do %>
-  <% @category.each do |c| -%>
-    <%= content_tag(:option, c.name, value: c) %>
-  <% end %>
-<% end %>
+    <%= f.label :Category_id %><br>
+    <%= collection_select(:game, :Category_id, Category.all, :id, :Cate_name, :prompt => true) %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+

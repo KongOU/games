@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :favorite_game ]
 
   # GET /games
   # GET /games.json
@@ -15,12 +15,28 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
-    @category = Category.all
   end
 
   # GET /games/1/edit
   def edit
   end
+
+  def like_game
+    @game.liked_by(current_user)
+
+    redirect_to @game
+  end
+
+   def dislike_game
+    @game.disliked_by(current_user)
+    redirect_to @game
+  end
+
+  def favorite_game
+    @game.vote_by :voter => current_user
+    redirect_to @game
+  end
+
 
   # POST /games
   # POST /games.json
@@ -70,6 +86,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:title, :image, :description, :release_date, :iframe, :source, :category_id)
+      params.require(:game).permit(:title, :image, :description, :release_date, :iframe, :source, :Category_id)
     end
 end

@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
 
       <% Category.all.limit(5).each do |c| %>
-        <li><%= link_to c.name , '#'%></li>
+        <li><%= link_to c.Cate_name, '#'%></li>
       <% end %>
 
       </ul>
