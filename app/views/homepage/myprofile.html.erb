@@ -20,9 +20,9 @@
       </tr>
     </table>
 </div>
+<% if current_user.favorites.count > 0 %>
 <div class="panel panel-primary">
   <div class="panel-heading"><center><h4>MY FAVORITE</h4></center></div>
-    <% if current_user.favorites.count > 0 %>
       <table class="table">
         <% current_user.favorites.each do |fav| %>
           <tr>
