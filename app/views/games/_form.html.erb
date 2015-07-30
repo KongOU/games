@@ -36,8 +36,8 @@
     <%= f.text_area :source %>
   </div>
   <div class="field">
-    <%= f.label :Category_id %><br>
-    <%= collection_select(:game, :Category_id, Category.all, :id, :name, :prompt => true) %>
+    <%= f.label :category_id %><br>
+    <%= collection_select(:game, :category_id, Category.all, :id, :name, :prompt => true) %>
   </div>
   <div class="actions">
     <%= f.submit %>
