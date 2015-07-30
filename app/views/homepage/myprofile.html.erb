@@ -1,9 +1,9 @@
-<div class="panel panel-default">
-<div class="panel-heading" style="text-align:center"><h4>Profile</h4></div>
+<div class="panel panel-primary">
+  <div class="panel-heading" style="text-align:center"><h4>Profile</h4></div>
     <table class="table">
       <tr>
         <td>
-           <%= image_tag(current_user.profilepicture, size: "150x150") %>
+          <%= image_tag(current_user.profilepicture, size: "150x150") %>
         </td>
         <td>
            <% if current_user.present? %>
@@ -11,19 +11,29 @@
            <% end %>
         </td>
         <td>
-          <%= link_to 'Edit Profile', edit_user_registration_path %>
+          <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-info" %>
          </td>
       </tr>
     </table>
 </div>
-<% if current_user.favorites.count > 0 %>
-<center><h1>MY FAVORITE</h1></center>
-  <table class="table">
-    <% current_user.favorites.each do |fav| %>
-      <tr>
-        <td> <%= image_tag(fav.image, size: '90x90') %> </td>
-        <td> <%= fav.title %></td>
-      </tr>
-    <% end %>
-  </table>
-  <% end %>
+<div class="panel panel-primary">
+  <div class="panel-heading"><center><h4>MY FAVORITE</h4></center></div>
+    <% if current_user.favorites.count > 0 %>
+      <table class="table">
+        <% current_user.favorites.each do |fav| %>
+          <tr>
+              <td><%= image_tag(fav.image, size: '150x150') %> </td>
+              <td>
+                <h5><%= fav.title %></h5>
+                <p><%= truncate(fav.description, length: 50, omission: "....." ) %></p>
+              </td>
+              <td><%= link_to '<span class= "glyphicon glyphicon-heart-empty" style="font-size:50px"></span>'.html_safe , remove_favorite_game_path(fav), method: :put %></td>
+          </tr>
+          <tr></tr>
+        <% end %>
+      </table>
+      <% end %>
+</div>
+
+
+
