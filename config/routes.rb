@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'categories/:id' => 'categories#index', as: 'category'
 
-  devise_for :users
+  devise_for :users, control: {registrations: 'registrations'}
   resources :games do
     member do
       put 'like', to: 'games#like_game'
