@@ -1,8 +1,16 @@
-<table class="table">
-    <% @category.games.each do |game| %>
-      <tr>
-        <td> <%= image_tag(game.image, size: '90x90') %> </td>
-        <td> <%= game.title %></td>
-      </tr>
-    <% end %>
-  </table>
+<div class="panel panel-default">
+  <div class="panel-body">
+  <div class="row">
+    <% @category.games.each do |g| %>
+        <div class="col-xs-5 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag(g.image.url, size: '242x200') %>
+            <div class="caption" style="text-align:center">
+              <h3><%= link_to g.title, g %></h3>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+      </div>
+  </div>

@@ -10,6 +10,8 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @category = @game.category
+    @games = Game.lastest_twently_game
   end
 
   # GET /games/new
@@ -94,6 +96,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:title, :image, :description, :release_date, :iframe, :source, :Category_id)
+      params.require(:game).permit(:title, :image, :description, :release_date, :iframe, :source, :category_id)
     end
 end

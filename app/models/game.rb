@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
 
   acts_as_votable
 
-  validates :title, :image, :description, :iframe, :source, :Category_id, presence: true
+  validates :title, :image, :description, :iframe, :source, :category_id, presence: true
 
   mount_uploader :image, GameImageUploader
 
