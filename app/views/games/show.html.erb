@@ -1,21 +1,26 @@
 <div class="col-xs-5 col-md-11">
 <h1><%= @game.title %></h1>
 <p><span class="badge">Stragy</span></p>
+
 <%= @game.iframe.html_safe %>
   <div class="panel panel-default">
   <div class="panel-body">
+
     <%= link_to pluralize(@game.get_likes.count, 'Like'), like_game_path(@game), method: :put, class: 'btn btn-default btn-lg'%>
 
     <%= link_to pluralize(@game.get_dislikes.count, 'Dislike'), dislike_game_path(@game), method: :put, class: 'btn btn-default btn-lg'%>
-    <% if current_user.favorites.count > 0 %>
+
+
+    <% if current_user.favorites.size > 0 %>
       <% current_user.favorites.each do |game| %>
-            <% if game.id == @game.id %>
-                  <%= link_to "unfavorite", favorite_game_path(@game, type: "unfavorite"), method: :put %>
-            <% end %>
-         <% end %>
+        <% if game.id == @game.id %>
+            <%= link_to "Unfavorite", remove_favorite_game_path(@game), method: :put %>
+        <% end %>
+      <% end %>
       <% else %>
-        <%= link_to "favorite",   favorite_game_path(@game, type: "favorite"), method: :put %>
+      <%= link_to "favorite", add_favorite_game_path(@game), method: :put %>
     <% end %>
+
 
 
   </div>

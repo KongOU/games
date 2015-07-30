@@ -3,7 +3,7 @@
   <div class="panel-body">
 
     <div class="row">
-    <% Game.order(:cached_weighted_average => :desc).limit(4).each do |g| %>
+    <% @weighted_average_game.each do |g| %>
         <div class="col-xs-5 col-md-3">
           <div class="thumbnail">
             <%= image_tag(g.image.url, size: '127x168') %>
@@ -23,7 +23,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
   <div class="row">
-    <% Game.all.limit(20).order('created_at DESC').each do |g| %>
+    <% @games.each do |g| %>
         <div class="col-xs-5 col-md-3">
           <div class="thumbnail">
             <%= image_tag(g.image.url, size: '127x168') %>
