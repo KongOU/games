@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-<div class="panel-heading"><h3>User Profile</h3></div>
+<div class="panel-heading" style="text-align:center"><h4>Profile</h4></div>
     <table class="table">
       <tr>
         <td>
@@ -16,10 +16,14 @@
       </tr>
     </table>
 </div>
+<% if current_user.favorites.count > 0 %>
 <center><h1>MY FAVORITE</h1></center>
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="field"></div>
-  </div>
-</div>
-
+  <table class="table">
+    <% current_user.favorites.each do |fav| %>
+      <tr>
+        <td> <%= image_tag(fav.image, size: '90x90') %> </td>
+        <td> <%= fav.title %></td>
+      </tr>
+    <% end %>
+  </table>
+  <% end %>

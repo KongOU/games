@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :favorite_game ]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :favorite ]
 
   # GET /games
   # GET /games.json
@@ -32,9 +32,19 @@ class GamesController < ApplicationController
     redirect_to @game
   end
 
-  def favorite_game
-    @game.vote_by :voter => current_user
-    redirect_to @game
+  def favorite
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorites << @game
+      redirect_to :back, notice: 'You favorited #{@recipe.name}'
+
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@game)
+      redirect_to :back, notice: 'Unfavorited #{@recipe.name}'
+    else
+      # Type missing, nothing happens
+      redirect_to :back, notice: 'Nothing happened.'
+    end
   end
 
 

@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :Category_id %><br>
-    <%= collection_select(:game, :Category_id, Category.all, :id, :Cate_name, :prompt => true) %>
+    <%= collection_select(:game, :Category_id, Category.all, :id, :name, :prompt => true) %>
   </div>
   <div class="actions">
     <%= f.submit %>
