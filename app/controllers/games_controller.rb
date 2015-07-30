@@ -14,7 +14,11 @@ class GamesController < ApplicationController
 
   # GET /games/new
   def new
-    @game = Game.new
+    if user_signed_in? && current_user.admin == true
+      @game = Game.new
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /games/1/edit

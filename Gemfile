@@ -24,6 +24,7 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'better_errors'
 end
 
 group :production do

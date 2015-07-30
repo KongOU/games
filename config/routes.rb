@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'admin' => 'admin#index'
+
   get 'categories/:id' => 'categories#index', as: 'category'
 
   devise_for :users
