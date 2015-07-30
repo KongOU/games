@@ -8,7 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/ ">Games Online</a>
+      <% if user_signed_in? && current_user.admin == true%>
+          <%= link_to 'Dashboard Admin', admin_path, class: 'navbar-brand' %>
+      <% else %>
+        <a class="navbar-brand" href="/ ">Games Online</a>
+      <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

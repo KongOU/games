@@ -1,10 +1,16 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :add_favorite, :remove_favorite ]
+  before_action :authenticate_user!, only: [:like_game, :dislike_game, :add_favorite, :remove_favorite, :edit, :show, :new ]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :favorite ]
+
 
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    if user_signed_in? && current_user.admin == true
+      @games = Game.all
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /games/1
@@ -16,11 +22,18 @@ class GamesController < ApplicationController
 
   # GET /games/new
   def new
-    @game = Game.new
+    if user_signed_in? && current_user.admin == true
+      @game = Game.new
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /games/1/edit
   def edit
+    if current_user.admin != true
+      raise("Page not found")
+    end
   end
 
   def like_game
