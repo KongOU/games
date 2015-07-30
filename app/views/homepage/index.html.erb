@@ -6,11 +6,11 @@
     <% @weighted_average_game.each do |g| %>
         <div class="col-xs-5 col-md-3">
           <div class="thumbnail">
-            <%= image_tag(g.image.url, size: '127x168') %>
+            <%= image_tag(g.image.url, size: '242x200') %>
             <div class="caption" style="text-align:center">
-              <h3><%= link_to g.title, g %></h3>
-              <p> <%= g.get_likes.count %> <span class="glyphicon glyphicon-thumbs-up"></span></p>
-               <p> <%= g.get_dislikes.count %> <span class="glyphicon glyphicon-thumbs-down"></span> </p>
+              <h3><%= link_to g.title, g, class: 'btn btn-link'%></h3>
+              <h3> <%= g.get_likes.count %> <span class="glyphicon glyphicon-thumbs-up"></span></h3>
+               <h3> <%= g.get_dislikes.count %> <span class="glyphicon glyphicon-thumbs-down"></span> </h3>
             </div>
           </div>
         </div>
@@ -26,7 +26,7 @@
     <% @games.each do |g| %>
         <div class="col-xs-5 col-md-3">
           <div class="thumbnail">
-            <%= image_tag(g.image.url, size: '127x168') %>
+            <%= image_tag(g.image.url, size: '242x200') %>
             <div class="caption" style="text-align:center">
               <h3><%= link_to g.title, g %></h3>
             </div>
