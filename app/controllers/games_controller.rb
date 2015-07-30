@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!, only: [:like_game, :dislike_game, :add_favorite, :remove_favorite, :edit, :show, :new ]
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :favorite ]
+  before_action :authenticate_user!, only: [:like_game, :dislike_game, :add_favorite, :remove_favorite,:show, :edit, :new ]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :add_favorite, :remove_favorite ]
 
 
   # GET /games
@@ -49,7 +49,6 @@ class GamesController < ApplicationController
 
 
   def add_favorite
-    # type = params[:type]
     @game.add_favorite(current_user)
     redirect_to @game
   end
