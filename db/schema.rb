@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729075305) do
+ActiveRecord::Schema.define(version: 20150729152844) do
 
   create_table "categories", force: :cascade do |t|
-    t.string   "Cate_name"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorite_games", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,16 +33,16 @@ ActiveRecord::Schema.define(version: 20150729075305) do
     t.date     "release_date"
     t.text     "iframe"
     t.text     "source"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "Category_id"
-    t.integer  "catched_voted_total"
-    t.integer  "cached_votes_score"
-    t.integer  "cached_votes_up"
-    t.integer  "cached_votes_down"
-    t.integer  "cach_weighted_score"
-    t.integer  "cached_weighted_total"
-    t.float    "cached_weighted_average"
+    t.integer  "catched_voted_total",     default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cach_weighted_score",     default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
 
   add_index "games", ["Category_id"], name: "index_games_on_Category_id"

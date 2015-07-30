@@ -2,11 +2,11 @@
   <div class="panel-heading">Features</div>
   <div class="panel-body">
 
-    <% Game.order(:cached_weighted_average => :desc).limit(5).each do |g| %>
-        <div class="row">
+    <div class="row">
+    <% Game.order(:cached_weighted_average => :desc).limit(4).each do |g| %>
         <div class="col-xs-5 col-md-3">
           <div class="thumbnail">
-            <%= image_tag(g.image.url) %>
+            <%= image_tag(g.image.url, size: '127x168') %>
             <div class="caption" style="text-align:center">
               <h3><%= link_to g.title, g %></h3>
               <p> <%= g.get_likes.count %> <span class="glyphicon glyphicon-thumbs-up"></span></p>
@@ -16,18 +16,17 @@
         </div>
       <% end %>
       </div>
-      </div>
+    </div>
 </div>
 
 <h1 style="text-align:center">BROWSE GAMES</h1>
 <div class="panel panel-default">
   <div class="panel-body">
-
-    <% Game.all.limit(5).order('created_at DESC').each do |g| %>
-        <div class="row">
+  <div class="row">
+    <% Game.all.limit(20).order('created_at DESC').each do |g| %>
         <div class="col-xs-5 col-md-3">
           <div class="thumbnail">
-            <%= image_tag(g.image.url) %>
+            <%= image_tag(g.image.url, size: '127x168') %>
             <div class="caption" style="text-align:center">
               <h3><%= link_to g.title, g %></h3>
             </div>

@@ -1,0 +1,8 @@
+<table class="table">
+    <% @category.games.each do |game| %>
+      <tr>
+        <td> <%= image_tag(game.image, size: '90x90') %> </td>
+        <td> <%= game.title %></td>
+      </tr>
+    <% end %>
+  </table>
