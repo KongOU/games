@@ -2,7 +2,10 @@
   <li><%= link_to 'All Game', admin_path %></li>
   <li class="active"><%= link_to 'New Game', new_game_path%></li>
 </ul>
-<%= form_for(@game, :html => { multipart: true }) do |f| %>
+<div class="row">
+<br>
+  <div class="col col-md-6 col-md-offset-3">
+  <%= form_for(@game, :html => { multipart: true }) do |f| %>
   <% if @game.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
@@ -20,10 +23,6 @@
     <%= f.text_field :title,class: 'form-control' %>
   </div>
   <div class="field form-group">
-    <%= f.label :image %><br>
-    <%= f.file_field :image, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
     <%= f.label :description %><br>
     <%= f.text_area :description,class: 'form-control' %>
   </div>
@@ -33,7 +32,7 @@
   </div>
   <div class="field form-group">
     <%= f.label :iframe %><br>
-    <%= f.text_area :iframe,class: 'form-control' %>
+    <%= f.text_field :iframe,class: 'form-control' %>
   </div>
   <div class="field form-group">
     <%= f.label :source %><br>
@@ -43,9 +42,16 @@
     <%= f.label :Category_id %><br>
     <%= collection_select(:game, :Category_id, Category.all, :id, :name, :prompt => true) %>
   </div>
+  <div class="field form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
   <div class="actions form-group">
     <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+  </div>
+</div>
 
 
