@@ -38,9 +38,11 @@
     <%= f.label :source %><br>
     <%= f.text_area :source,class: 'form-control' %>
   </div>
-  <div class="field form-group">
-    <%= f.label :Category_id %><br>
-    <%= collection_select(:game, :Category_id, Category.all, :id, :name, :prompt => true) %>
+
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= collection_select(:game, :category_id, Category.all, :id, :name, :prompt => true) %>
+
   </div>
   <div class="field form-group">
     <%= f.label :image %><br>

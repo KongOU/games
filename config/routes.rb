@@ -9,11 +9,12 @@ Rails.application.routes.draw do
     member do
       put 'like', to: 'games#like_game'
       put 'dislike', to: 'games#dislike_game'
-      put :favorite, to: 'games#favorite'
+      put 'add_favorite', to: 'games#add_favorite'
+      put 'remove_favorite', to: 'games#remove_favorite'
     end
   end
+
   root 'homepage#index'
   get '/myprofile' => 'homepage#myprofile'
-  get 'games/index'
 
 end

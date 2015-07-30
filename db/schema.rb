@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150730081517) do
     t.text     "source"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-    t.integer  "Category_id"
+    t.integer  "category_id"
     t.integer  "catched_voted_total",     default: 0
     t.integer  "cached_votes_score",      default: 0
     t.integer  "cached_votes_up",         default: 0
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150730081517) do
     t.float    "cached_weighted_average", default: 0.0
   end
 
-  add_index "games", ["Category_id"], name: "index_games_on_Category_id"
+  add_index "games", ["category_id"], name: "index_games_on_category_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

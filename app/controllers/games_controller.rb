@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   before_action :authenticate_user!, only: [:like_game, :dislike_game, :add_favorite, :remove_favorite, :edit, :show, :new ]
   before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :favorite ]
 
+
   # GET /games
   # GET /games.json
   def index
@@ -15,6 +16,8 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @category = @game.category
+    @games = Game.lastest_twently_game
   end
 
   # GET /games/new
@@ -44,20 +47,18 @@ class GamesController < ApplicationController
     redirect_to @game
   end
 
-  def favorite
-    type = params[:type]
-    if type == "favorite"
-      current_user.favorites << @game
-      redirect_to :back, notice: 'You favorited #{@recipe.name}'
 
-    elsif type == "unfavorite"
-      current_user.favorites.delete(@game)
-      redirect_to :back, notice: 'Unfavorited #{@recipe.name}'
-    else
-      # Type missing, nothing happens
-      redirect_to :back, notice: 'Nothing happened.'
-    end
+  def add_favorite
+    # type = params[:type]
+    @game.add_favorite(current_user)
+    redirect_to @game
   end
+
+  def remove_favorite
+    @game.remove_favorite(current_user)
+    redirect_to @game
+  end
+
 
 
   # POST /games
@@ -108,6 +109,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:title, :image, :description, :release_date, :iframe, :source, :Category_id)
+      params.require(:game).permit(:title, :image, :description, :release_date, :iframe, :source, :category_id)
     end
 end
