@@ -47,7 +47,7 @@
       <% @games.each do |g| %>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
-          <%= image_tag(g.image.url) %>
+          <%= image_tag(g.image.url, :style => 'width:242px; height:200px') %>
           <div class="caption" style="text-align:center">
             <h3><%= link_to g.title, g %></h3>
           </div>
