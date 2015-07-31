@@ -11,6 +11,8 @@ class Game < ActiveRecord::Base
 
   scope :weighted_average_limit, ->{ all.order(cached_weighted_average: :DESC).limit(4) }
   scope :lastest_twently_game, -> { where('release_date <= ?', Date.today).order(created_at: :DESC).limit(20) }
+  scope :related_game, -> { where('release_date <= ?', Date.today).order(created_at: :DESC).limit(8) }
+
 
   def add_favorite(user)
       user.favorites << self
