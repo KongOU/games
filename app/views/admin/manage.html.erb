@@ -1,0 +1,15 @@
+<table class="table">
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+  <% @user.each do |user| %>
+  <tr>
+    <td><%= user.username %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to '', edit_user_with_id_path(user), class: 'glyphicon glyphicon-pencil' %></td>
+  </tr>
+  <% end %>
+</table>
+
