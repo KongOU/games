@@ -18,37 +18,37 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= f.label :title %><br>
+  <div class="form-group">
+    <%= f.label :title %>
     <%= f.text_field :title,class: 'form-control' %>
   </div>
-  <div class="field form-group">
-    <%= f.label :description %><br>
+  <div class="form-group">
+    <%= f.label :description %>
     <%= f.text_area :description,class: 'form-control' %>
   </div>
-  <div class="field form-group">
-    <%= f.label :release_date %><br>
+  <div class="form-group">
+    <%= f.label :release_date %>
     <%= f.date_select :release_date,class: 'form-control' %>
   </div>
-  <div class="field form-group">
-    <%= f.label :iframe %><br>
+  <div class="form-group">
+    <%= f.label :iframe %>
     <%= f.text_field :iframe,class: 'form-control' %>
   </div>
-  <div class="field form-group">
-    <%= f.label :source %><br>
+  <div class="form-group">
+    <%= f.label :source %>
     <%= f.text_area :source,class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :category_id %><br>
+  <div class="form-group">
+    <%= f.label :category_id %>
     <%= collection_select(:game, :category_id, Category.all, :id, :name, :prompt => true) %>
 
   </div>
-  <div class="field form-group">
-    <%= f.label :image %><br>
+  <div class="form-group">
+    <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
-  <div class="actions form-group">
+  <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
