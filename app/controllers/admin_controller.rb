@@ -7,4 +7,7 @@ class AdminController < ApplicationController
     end
   end
 
+  def manage
+    @user = User.all
+  end
 end
