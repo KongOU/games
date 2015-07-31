@@ -18,6 +18,7 @@ class GamesController < ApplicationController
   def show
     @category = @game.category
     @games = Game.lastest_twently_game
+    @related =Game.related_game
   end
 
   # GET /games/new
