@@ -2,6 +2,7 @@
   <h1>
     <span><%= @game.title %></span>
     <span class= 'pull-right'>
+    <% if user_signed_in? %>
       <% if current_user.favorites.size > 0 %>
         <% current_user.favorites.each do |game| %>
           <% if game.id == @game.id %>
@@ -10,6 +11,9 @@
           <% end %>
         <% end %>
         <% else %>
+        <%= link_to '<span class= "glyphicon glyphicon-heart"></span>'.html_safe, add_favorite_game_path(@game), method: :put %>
+      <% end %>
+      <% else %>
         <%= link_to '<span class= "glyphicon glyphicon-heart"></span>'.html_safe, add_favorite_game_path(@game), method: :put %>
       <% end %>
     </span>
