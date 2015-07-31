@@ -28,7 +28,7 @@
           <div class="thumbnail">
             <%= image_tag(g.image.url, :style => 'width:242px; height:200px') %>
             <div class="caption" style="text-align:center">
-              <h3><%= link_to g.title, g %></h3>
+              <h3><%= link_to truncate(g.title, length: 22, omission: '...'), g %></h3>
             </div>
           </div>
         </div>
