@@ -15,7 +15,7 @@
            <% end %>
         </td>
         <td>
-          <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-info" %>
+          <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-info pull-right" %>
          </td>
       </tr>
     </table>
@@ -31,7 +31,7 @@
                 <h5><%= fav.title %></h5>
                 <p><%= truncate(fav.description, length: 50, omission: "....." ) %></p>
               </td>
-              <td><%= link_to '<span class= "glyphicon glyphicon-heart-empty" style="font-size:50px"></span>'.html_safe , remove_favorite_game_path(fav), method: :put %></td>
+              <td><%= link_to '<span class= "glyphicon glyphicon-heart-empty pull-right" style="font-size:50px"></span>'.html_safe , remove_favorite_game_path(fav), method: :put %></td>
           </tr>
           <tr></tr>
         <% end %>
