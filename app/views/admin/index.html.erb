@@ -17,7 +17,7 @@
                 <% @game.each do |game| %>
                 <tr>
                   <td>
-                    <%= link_to (image_tag game.image, size: '242x200'), game %>
+                    <%= link_to (image_tag game.image, size: '242x242'), game %>
                   </td>
                   <td>
                     Title: <%= link_to (game.title), game, class: 'btn btn-link' %>
