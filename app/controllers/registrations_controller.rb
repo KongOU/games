@@ -1,11 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  def set_params
+def set_param
     params[:user].permit(:profilepicture)
-  end
-  protected
-  def update_resource(resource, set_params)
-    resource.update_without_password(set_params)
-  end
+end
 
+def update_resource(resource, set_param)
+    resource.update_without_password(set_param)
+end
 end
