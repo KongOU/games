@@ -8,10 +8,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <% if user_signed_in? && current_user.admin == true%>
+      <% if user_signed_in? && current_user.admin == true %>
           <%= link_to 'Dashboard Admin', admin_path, class: 'navbar-brand' %>
       <% else %>
-        <a class="navbar-brand" href="/ ">Games Online</a>
+        <%= link_to 'Games Online', root_path %>
       <% end %>
     </div>
 
