@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!, only: [:like_game, :dislike_game, :add_favorite, :remove_favorite,:show, :edit, :new ]
+  before_action :authenticate_user!, only: [:like_game, :dislike_game, :add_favorite, :remove_favorite, :edit, :new ]
   before_action :set_game, only: [:show, :edit, :update, :destroy, :like_game, :dislike_game, :add_favorite, :remove_favorite ]
 
 
